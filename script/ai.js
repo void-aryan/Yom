@@ -84,7 +84,7 @@ module.exports.run = async function({ api, event, args }) {
   try {
     const { data } = await axios.get('https://kaiz-apis.gleeze.com/api/gpt-4o', {
       params: {
-        q: input,
+        ask: input,
         uid: uid,
       }
     });
