@@ -50,7 +50,7 @@ module.exports.run = async function({ api, event, args }) {
     api.sendMessage("🔄 Analyzing image...", event.threadID, event.messageID);
 
     try {
-      const { data } = await axios.get('https://kaiz-apis.gleeze.com/api/gemini-vision', {
+      const { data } = await axios.get('https://gpt.lorex-ai.com/api/gemini-vision', {
         params: {
           q: input,
           uid: uid,
