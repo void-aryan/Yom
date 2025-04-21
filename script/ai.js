@@ -82,7 +82,7 @@ module.exports.run = async function({ api, event, args }) {
   api.sendMessage("🔄 Generating...", event.threadID, event.messageID);
 
   try {
-    const { data } = await axios.get('https://kaiz-apis.gleeze.com/api/gpt-4o', {
+    const { data } = await axios.get('https://gpt.lorex-ai.com/api/gpt-4o', {
       params: {
         ask: input,
         uid: uid,
