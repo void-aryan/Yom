@@ -50,11 +50,12 @@ module.exports.run = async function({ api, event, args }) {
     api.sendMessage("🔄 Analyzing image...", event.threadID, event.messageID);
 
     try {
-      const { data } = await axios.get('https://gpt.lorex-ai.com/api/gemini-vision', {
+      const { data } = await axios.get('https://kaiz-apis.gleeze.com/api/gemini-vision', {
         params: {
           q: input,
           uid: uid,
-          imageUrl: photoUrl
+          imageUrl: photoUrl,
+          apikey: 'acb7e0e8-bbc3-4697-bf64-1f3c6231dee7'
         }
       });
 
@@ -73,7 +74,7 @@ module.exports.run = async function({ api, event, args }) {
 
   if (!input) {
     return api.sendMessage(
-      "Please provide a query or prompt to interact with 𝗟𝗼𝗿𝗲𝘅 𝗔𝗶.",
+      "❌ Please provide a query or prompt",
       event.threadID,
       event.messageID
     );
@@ -82,10 +83,11 @@ module.exports.run = async function({ api, event, args }) {
   api.sendMessage("🔄 Generating...", event.threadID, event.messageID);
 
   try {
-    const { data } = await axios.get('https://gpt.lorex-ai.com/api/gpt-4o', {
+    const { data } = await axios.get('https://kaiz-apis.gleeze.com/api/gemini-flash-2.0', {
       params: {
-        ask: input,
+        q: input,
         uid: uid,
+        apikey: 'acb7e0e8-bbc3-4697-bf64-1f3c6231dee7'
       }
     });
 
